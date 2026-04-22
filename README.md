@@ -1,8 +1,8 @@
-# Value at Risk (VaR) Model in Python
+# Value at Risk (VaR) Financial Model
 
 ## Project Description
 This project implements a Value at Risk (VaR) model to measure financial risk using historical market data.
-The objective is to estimate the maximum expected loss of an asset over a given time horizon at a specified confidence level.
+The objective is to estimate the **maximum expected loss** of an asset over a given time horizon at a specified confidence level.
 ---
 
 ## What does this project do?
@@ -20,7 +20,7 @@ The objective is to estimate the maximum expected loss of an asset over a given 
 ---
 
 ## Methodology
-The project implements two approaches for VaR estimation:
+The project implements three approaches for VaR estimation:
 
 ### 1. Historical VaR
 - Based on the empirical distribution of returns  
@@ -30,28 +30,52 @@ The project implements two approaches for VaR estimation:
 ### 2. Parametric VaR (Normal)
 - Assumes returns follow a normal distribution  
 - Uses mean (μ) and standard deviation (σ)  
-- Applies the Z-score corresponding to the confidence level  
+- Applies the Z-score corresponding to the confidence level
+
+### 3. Monte Carlo VaR
+- Simulates returns using a normal distribution
+- Generates thousands of scenarios
+- Estimates VaR from simulated distribution
 ---
 
 ## Process
 1. Download financial data  
 2. Compute logarithmic returns  
 3. Calculate descriptive statistics
-4. Estimate VaR (Historical & Parametric)  
+4. Estimate VaR (3 methods)  
 5. Visualize results  
 ---
 
 ## Main Result
 The model estimates the maximum expected daily loss of the asset at a given confidence level.
 
-Example interpretation:
-> At a 95% confidence level, the model indicates that the maximum expected daily loss will not exceed a specific percentage under normal market conditions.
+### Example Result
+
+For AAPL at a 95% confidence level:
+
+- Historical VaR: -2.74%
+- Parametric VaR: -2.86%
+- Monte Carlo VaR: -2.86%
+
+
+Interpretation:
+> With 95% confidence, the daily loss is not expected to exceed approximately 2.6%–2.7% under normal market conditions.
+
 ---
 
 ## Visualizations
-- Time series of returns  
-- Histogram of returns  
-- VaR thresholds (Historical vs Parametric)  
+- Price time series
+- Returns time series
+- Return distribution histogram
+- VaR thresholds comparison
+
+---
+
+## Limitations
+- Assumes normal market conditions
+- Does not capture extreme tail risk
+- Parametric and Monte Carlo methods assume normality
+
 ---
 
 ## How to Run
